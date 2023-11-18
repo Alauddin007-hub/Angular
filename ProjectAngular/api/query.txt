@@ -1,0 +1,11 @@
+###### room table #####
+SELECT room_id,room.room_type_id,room_no,check_in_status,check_out_status, room_type, room_img,price,max_person FROM room,room_type WHERE room_type.room_type_id=room.room_type_id AND check_out_status=1 AND deleteStatus=0; 
+
+		############# Available room Query ############
+
+SELECT room_id,room.room_type_id,room_no,check_in_status,check_out_status, room_type, room_img,price,max_person FROM room,room_type WHERE room_type.room_type_id=room.room_type_id AND status IS NULL AND deleteStatus=0; 
+
+
+		######### 3 Tables Query ############
+
+SELECT booking.room_id, check_in,check_out,room.room_id,room.room_type_id,room_no,room_type, room_img,price,max_person FROM booking,room,room_type WHERE booking.room_id=room.room_id AND room_type.room_type_id=room.room_type_id AND status IS NULL AND deleteStatus=0; 
