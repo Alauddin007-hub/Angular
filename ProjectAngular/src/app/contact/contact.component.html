@@ -14,22 +14,25 @@
     <div class="container">
        <div class="row">
           <div class="col-md-6">
-             <form id="request" class="main_form">
+             <form id="request" class="main_form" #myPost="ngForm" (ngSubmit)="onSubmit(myPost.value)">
                 <div class="row">
                    <div class="col-md-12 ">
-                      <input class="contactus" placeholder="Name" type="type" name="Name"> 
+                      <input class="contactus" placeholder="Complainant Name" type="type" name="name" ngModel> 
                    </div>
                    <div class="col-md-12">
-                      <input class="contactus" placeholder="Email" type="type" name="Email"> 
+                      <input class="contactus" placeholder="Email" type="type" name="email" ngModel> 
                    </div>
                    <div class="col-md-12">
-                      <input class="contactus" placeholder="Phone Number" type="type" name="Phone Number">                          
+                      <input class="contactus" placeholder="Phone Number" type="type" name="phone" ngModel>                          
+                   </div>
+                   <div class="col-md-12 ">
+                     <input class="contactus" placeholder="Complain Type" type="type" name="complain_type" ngModel> 
+                  </div>
+                   <div class="col-md-12">
+                      <textarea class="textarea" placeholder="Complain" type="type" name="complain" ngModel></textarea>
                    </div>
                    <div class="col-md-12">
-                      <textarea class="textarea" placeholder="Message" type="type" Message="Name">Message</textarea>
-                   </div>
-                   <div class="col-md-12">
-                      <button class="send_btn">Send</button>
+                      <input class="send_btn" type="submit" value="SUBMIT">
                    </div>
                 </div>
              </form>

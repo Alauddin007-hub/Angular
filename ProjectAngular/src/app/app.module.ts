@@ -13,6 +13,7 @@ import { GalleryComponent } from './gallery/gallery.component';
 import { RoomComponent } from './room/room.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { BookingRoomComponent } from './booking-room/booking-room.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FormsModule } from '@angular/forms';
     ContactComponent,
     BlogComponent,
     GalleryComponent,
-    RoomComponent
+    RoomComponent,
+    BookingRoomComponent
   ],
   imports: [
     BrowserModule,
