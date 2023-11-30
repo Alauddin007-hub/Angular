@@ -1,4 +1,5 @@
 import { HttpClient } from '@angular/common/http';
+import { identifierName } from '@angular/compiler';
 import { Component } from '@angular/core';
 
 @Component({
@@ -14,8 +15,10 @@ export class ContactComponent {
 
   onSubmit(data:any){
     this.http.post('http://localhost/Angular/ProjectAngular/api/contact.php', data).subscribe(result=>{
-      console.log(result);
-      
+      // console.log(result);
+      if(result){
+        alert("Complain Sent Successfully");
+      } 
     })
   }
 

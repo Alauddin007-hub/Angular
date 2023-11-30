@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 05, 2023 at 07:39 AM
+-- Generation Time: Nov 23, 2023 at 09:12 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -44,15 +44,19 @@ CREATE TABLE `booking` (
 --
 
 INSERT INTO `booking` (`booking_id`, `customer_id`, `room_id`, `booking_date`, `check_in`, `check_out`, `total_price`, `remaining_price`, `payment_status`) VALUES
-(1, 1, 5, '2017-11-13 05:45:17', '13-11-2017', '15-11-2017', 3000, 3000, 0),
+(1, 1, 5, '2017-11-13 05:45:17', '13-11-2017', '15-11-2017', 3000, 0, 1),
 (2, 2, 2, '2017-11-13 05:46:04', '13-11-2017', '16-11-2017', 6000, 0, 1),
-(3, 3, 2, '2017-11-11 06:49:19', '11-11-2017', '14-11-2017', 6000, 3000, 0),
-(4, 4, 7, '2017-11-09 06:50:24', '11-11-2017', '15-11-2017', 10000, 10000, 0),
+(3, 3, 2, '2017-11-11 06:49:19', '11-11-2017', '14-11-2017', 6000, 0, 1),
+(4, 4, 7, '2017-11-09 06:50:24', '11-11-2017', '15-11-2017', 10000, 0, 1),
 (5, 5, 13, '2017-11-17 06:59:10', '17-11-2017', '20-11-2017', 12000, 0, 1),
-(6, 6, 9, '2021-04-08 09:45:56', '08-04-2021', '10-04-2021', 3000, 3000, 0),
-(7, 7, 14, '2021-04-08 17:56:41', '08-04-2021', '10-04-2021', 16500, 11500, 0),
+(6, 6, 9, '2021-04-08 09:45:56', '08-04-2021', '10-04-2021', 3000, 0, 1),
+(7, 7, 14, '2021-04-08 17:56:41', '08-04-2021', '10-04-2021', 16500, 0, 1),
 (8, 8, 22, '2021-04-09 08:32:57', '09-04-2021', '13-04-2021', 34500, 0, 1),
-(9, 9, 3, '2023-11-02 05:00:56', '04-11-2023', '08-11-2023', 10000, 10000, 0);
+(9, 9, 3, '2023-11-02 05:00:56', '04-11-2023', '08-11-2023', 10000, 0, 1),
+(11, 11, 15, '2023-11-07 07:41:41', '16-11-2023', '22-11-2023', 38500, 0, 1),
+(12, 12, 4, '2023-11-18 03:46:47', '18-11-2023', '20-11-2023', 9000, 0, 1),
+(13, 13, 30, '2023-11-19 07:41:00', '19-11-2023', '22-11-2023', 40000, 40000, 0),
+(14, 14, 18, '2023-11-19 07:42:26', '20-11-2023', '23-11-2023', 26000, 26000, 0);
 
 -- --------------------------------------------------------
 
@@ -63,6 +67,8 @@ INSERT INTO `booking` (`booking_id`, `customer_id`, `room_id`, `booking_date`, `
 CREATE TABLE `complaint` (
   `id` int(11) NOT NULL,
   `complainant_name` varchar(100) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `phone_number` int(15) NOT NULL,
   `complaint_type` varchar(100) NOT NULL,
   `complaint` varchar(200) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
@@ -75,11 +81,14 @@ CREATE TABLE `complaint` (
 -- Dumping data for table `complaint`
 --
 
-INSERT INTO `complaint` (`id`, `complainant_name`, `complaint_type`, `complaint`, `created_at`, `resolve_status`, `resolve_date`, `budget`) VALUES
-(1, 'Janice Alexander\n', 'Room Windows', 'Doesnot operate properly', '2020-07-16 06:51:24', 1, '2020-07-17 06:51:58', 3600),
-(2, 'Robert Peter\n', 'Air Conditioner', 'Sensor Problems', '2020-10-01 06:51:44', 1, '2020-10-03 07:06:02', 7950),
-(3, 'Jason J Pirkle\n', 'Bad Smells', 'Some odd smells around room areas', '2018-04-01 07:01:17', 1, '2018-04-01 07:01:52', 500),
-(5, 'Will Williams', 'Faulty Electronics', 'Due to some weird reasons, the electronics are not working as it should; some voltage problems too - M-135', '2021-04-09 08:38:19', 1, '2021-04-09 08:38:39', 2500);
+INSERT INTO `complaint` (`id`, `complainant_name`, `email`, `phone_number`, `complaint_type`, `complaint`, `created_at`, `resolve_status`, `resolve_date`, `budget`) VALUES
+(1, 'Janice Alexander\n', '', 0, 'Room Windows', 'Doesnot operate properly', '2020-07-16 06:51:24', 1, '2020-07-17 06:51:58', 3600),
+(2, 'Robert Peter\n', '', 0, 'Air Conditioner', 'Sensor Problems', '2020-10-01 06:51:44', 1, '2020-10-03 07:06:02', 7950),
+(3, 'Jason J Pirkle\n', '', 0, 'Bad Smells', 'Some odd smells around room areas', '2018-04-01 07:01:17', 1, '2018-04-01 07:01:52', 500),
+(5, 'Will Williams', '', 0, 'Faulty Electronics', 'Due to some weird reasons, the electronics are not working as it should; some voltage problems too - M-135', '2021-04-09 08:38:19', 1, '2021-04-09 08:38:39', 2500),
+(6, 'Abdur Rahim', 'java@gmail.com', 1991638639, 'weoaufdhWIfu', 'this is a complain', '2023-11-19 07:58:33', 0, '0000-00-00 00:00:00', 0),
+(12, 'Abdul karim', 'abdur@gmail.com', 136452789, 'AC Not Working', 'Ac not work', '2023-11-23 04:50:56', 0, '0000-00-00 00:00:00', 0),
+(13, '', '', 0, '', '', '2023-11-23 04:53:11', 0, '0000-00-00 00:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -110,7 +119,12 @@ INSERT INTO `customer` (`customer_id`, `customer_name`, `contact_no`, `email`, `
 (6, 'Bruno Denn', 1245554780, 'denbru@gmail.com', 4, 'AASS 12454784541', '4764 Warner Street\n'),
 (7, 'Ric Austin', 2450006974, 'austinric@gmail.com', 1, '457896000002', '1680  Brownton Road'),
 (8, 'Andrew Stuartt', 2457778450, 'andrew@gmail.com', 1, '147000245810', '766  Lodgeville Road'),
-(9, 'Mr. Java', 170000000, 'abc@gmail.com', 1, '647812392243', 'Jhigatola');
+(9, 'Mr. Java', 170000000, 'abc@gmail.com', 1, '647812392243', 'Jhigatola'),
+(10, 'Mrs.  Java', 1703792648, 'java@gmail.com', 1, '145879562361', 'Rajbari'),
+(11, 'Mrs.  Java', 1703792648, 'java@gmail.com', 1, '145879562361', 'Rajbari'),
+(12, 'Masum Hossain', 1978452364, 'masum@gmail.com', 1, '631457895385', 'Poltan'),
+(13, 'Mr. Him', 1364578925, 'him@gmail.com', 1, '497856324586', 'Rajbari'),
+(14, 'Mrs. Her', 1478965230, 'her@gmail.com', 1, '647859823475', 'Tangaile');
 
 -- --------------------------------------------------------
 
@@ -197,23 +211,23 @@ CREATE TABLE `room` (
 
 INSERT INTO `room` (`room_id`, `room_type_id`, `room_no`, `status`, `check_in_status`, `check_out_status`, `deleteStatus`) VALUES
 (1, 2, 'A-101', NULL, 0, 0, 1),
-(2, 2, 'A-102', 1, 1, 1, 0),
-(3, 3, 'A-103', 1, 0, 0, 0),
-(4, 4, 'A-104', NULL, 0, 0, 0),
-(5, 1, 'B-101', 1, 0, 0, 0),
+(2, 2, 'A-102', NULL, 0, 1, 0),
+(3, 3, 'A-103', NULL, 0, 1, 0),
+(4, 4, 'A-104', NULL, 0, 1, 0),
+(5, 1, 'B-101', NULL, 0, 1, 0),
 (6, 2, 'B-102', NULL, 0, 0, 1),
-(7, 3, 'B-103', 1, 0, 0, 0),
+(7, 3, 'B-103', NULL, 0, 1, 0),
 (8, 4, 'B-104', NULL, 0, 0, 1),
-(9, 1, 'C-101', 1, 0, 0, 0),
+(9, 1, 'C-101', NULL, 0, 1, 0),
 (10, 2, 'C-102', NULL, 0, 0, 0),
 (11, 3, 'C-103', NULL, 0, 0, 1),
 (12, 4, 'C-104', NULL, 0, 0, 0),
 (13, 4, 'D-101', NULL, 0, 1, 1),
-(14, 5, 'K-699', 1, 1, 0, 0),
-(15, 5, 'K-799', NULL, 0, 0, 0),
+(14, 5, 'K-699', NULL, 0, 1, 0),
+(15, 5, 'K-799', NULL, 0, 1, 0),
 (16, 5, 'K-899', NULL, 0, 0, 0),
 (17, 6, 'M-333', NULL, 0, 0, 0),
-(18, 6, 'M-444', NULL, 0, 0, 0),
+(18, 6, 'M-444', 1, 0, 0, 0),
 (19, 6, 'M-555', NULL, 0, 0, 0),
 (20, 9, 'P-696', NULL, 0, 0, 0),
 (21, 10, 'M-966', NULL, 0, 0, 0),
@@ -222,7 +236,10 @@ INSERT INTO `room` (`room_id`, `room_type_id`, `room_no`, `status`, `check_in_st
 (24, 7, 'X-969', NULL, 0, 0, 0),
 (25, 8, 'Z-111', NULL, 0, 0, 0),
 (26, 6, 'M-135', NULL, 0, 0, 0),
-(27, 2, 'D-105', NULL, 0, 0, 0);
+(27, 2, 'D-105', NULL, 0, 0, 0),
+(28, 3, 'E106', NULL, 0, 0, 0),
+(29, 11, 'Co-105', NULL, 0, 0, 0),
+(30, 11, 'Co-103', 1, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -362,7 +379,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `name`, `username`, `email`, `password`, `created_at`) VALUES
-(2, 'Christine', 'christine', 'christine@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', '2015-11-12 12:49:22'),
+(2, 'abc', 'christine', 'abc@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', '2015-11-12 12:49:22'),
 (3, 'Harry Denn', 'harryden', 'harryden@gmail.com', 'd0a512f262ed34abed0c45cefe08c429', '2016-04-01 12:49:22');
 
 --
@@ -452,19 +469,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `booking_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `booking_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `complaint`
 --
 ALTER TABLE `complaint`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `customer_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `customer_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `emp_history`
@@ -482,7 +499,7 @@ ALTER TABLE `id_card_type`
 -- AUTO_INCREMENT for table `room`
 --
 ALTER TABLE `room`
-  MODIFY `room_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `room_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `room_type`

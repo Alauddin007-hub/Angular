@@ -14,6 +14,7 @@ import { RoomComponent } from './room/room.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BookingRoomComponent } from './booking-room/booking-room.component';
+import { AvaiRoomComponent } from './avai-room/avai-room.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { BookingRoomComponent } from './booking-room/booking-room.component';
     BlogComponent,
     GalleryComponent,
     RoomComponent,
-    BookingRoomComponent
+    BookingRoomComponent,
+    AvaiRoomComponent
   ],
   imports: [
     BrowserModule,

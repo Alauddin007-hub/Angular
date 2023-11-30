@@ -6,6 +6,8 @@ import { RoomComponent } from './room/room.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { BlogComponent } from './blog/blog.component';
 import { ContactComponent } from './contact/contact.component';
+import { AvaiRoomComponent } from './avai-room/avai-room.component';
+import { BookingRoomComponent } from './booking-room/booking-room.component';
 
 const routes: Routes = [
   {path:'', component: HomeComponent},
@@ -14,6 +16,8 @@ const routes: Routes = [
   {path:'gallery', component: GalleryComponent},
   {path:'blog', component: BlogComponent},
   {path:'contact', component: ContactComponent},
+  {path:'avairoom', component: AvaiRoomComponent},
+  {path:'bookingroom', component: BookingRoomComponent},
 ];
 
 @NgModule({

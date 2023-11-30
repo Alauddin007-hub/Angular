@@ -1,7 +1,8 @@
 import { Component,OnInit } from '@angular/core';
 
-import { Room } from '../room';
+import { HttpClient } from '@angular/common/http';
 
+import { Room } from '../room';
 import { RoomService } from '../room.service';
 
 @Component({
@@ -15,7 +16,7 @@ export class HomeComponent implements OnInit {
   success = '';
   room: Room = {room_type:'', price:0, room_img:''};
         
-  constructor(private roomService: RoomService) {
+  constructor(private roomService: RoomService, private http:HttpClient) {
   }
         
   ngOnInit() {
@@ -26,7 +27,7 @@ export class HomeComponent implements OnInit {
     this.roomService.getAll().subscribe(
       (data: Room[]) => {
         this.rooms = data;
-        console.log(data);
+        // console.log(data);
         this.success = 'successful retrieval of the list';
       },
       // (err) => {
@@ -35,4 +36,15 @@ export class HomeComponent implements OnInit {
       // }
     );
   }
+
+  onSubmit(data:any){
+    this.http.post('http://localhost/Angular/ProjectAngular/api/contact.php', data).subscribe(result=>{
+      // console.log(result);
+      if(result){
+        alert("Complain Sent Successfully");
+    } 
+      
+    })
+  }
+  
 }
